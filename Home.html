@@ -1,0 +1,172 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>List of Books</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h2 style="text-align: center; text-transform: uppercase; color: blue;">List of Books</h2>
+      <div class="main">
+        <input type="text" name="" id="myInput" placeholder="Search for Name or Author" onkeyup="funSearch()"><br><br>
+
+        <table id="myTable">
+            <tr class="header">
+                <th style="width: 30%;">Title</th>
+                <th style="width: 20%;">Author</th>
+                <th style="width: 20%;">Subject</th>
+                <th style="width: 10%;">Publish Date</th>
+            </tr>
+            <tr>
+                <td>Operating System Concepts</td>
+                <td>Abraham Silberschatz and Peter Galvin</td>
+                <td>Operating System</td>
+                <td>2002</td>
+            </tr>
+            <tr>
+                <td>Operating System: A Design-Oriented Approach</td>
+                <td>Charles Crowley</td>
+                <td>Operating System</td>
+                <td>1996</td>
+            </tr>
+            <tr>
+                <td>Design of the UNIX Operating Systems</td>
+                <td>Maurice Bach</td>
+                <td>Operating System</td>
+                <td>1986</td>
+            </tr>
+            <tr>
+                <td>Operating Systems</td>
+                <td>Archer J Harris</td>
+                <td>Operating System</td>
+                <td>2008</td>
+            </tr>
+            <tr>
+                <td>Operating Systems: A Concept-Based Approach</td>
+                <td>D M Dhamdhere</td>
+                <td>Operating System</td>
+                <td>2003</td>
+            </tr>
+            <tr>
+              <td>Guide to Operating Systems</td>
+              <td>Greg Tomsho</td>
+              <td>Operating System</td>
+              <td>2016</td>
+            </tr>
+            <tr>
+              <td>Operating System Concepts: Windows Xp Update 6th Edition</td>
+              <td>Silberschatz Galvin Gagne</td>
+              <td>Operating System</td>
+              <td>2006</td>
+            </tr>
+            <tr>
+              <td>Modern Operating Systems</td>
+              <td>Andrew S Tanenbaum and Herbert BOS</td>
+              <td>Operating System</td>
+              <td>1992</td>
+            </tr>
+            <tr>
+              <td>Operating Systems: A Modern Perspective</td>
+              <td>Gary J Nutt</td>
+              <td>Operating System</td>
+              <td>1997</td>
+            </tr>
+            <tr>
+              <td>UNIX - The Complete Reference</td>
+              <td>Ken Rosen, James Farber, Douglas Host, Rachel Klee, and Richard Rosinski</td>
+              <td>Operating System</td>
+              <td>1999</td>
+            </tr>
+            <tr>
+              <td>Operating Systems: Internals and Design Principles</td>
+              <td>William Stallings</td>
+              <td>Operating System</td>
+              <td>1992</td>
+            </tr>            
+            <tr>
+              <td>Operating System Design: The Xinu Approach</td>
+              <td>Douglas Comer</td>
+              <td>Operating System</td>
+              <td>1984</td>
+            </tr>
+            <tr>
+              <td>Understanding Operating System</td>
+              <td>Ann McHoes and Ida M.Flynn</td>
+              <td>Operating System</td>
+              <td>1991</td>
+            </tr>
+            <tr>
+              <td>Operating Systems: Three Easy Pieces</td>
+              <td>Remzi Arpaci-Dusseau and Andrea Arpaci-Dusseau</td>
+              <td>Operating System</td>
+              <td>2015</td>
+            </tr>
+            <tr>
+              <td>Operating Systems: Principle and Practice</td>
+              <td>Thomas Anderson and Michael Dahlin</td>
+              <td>Operating System</td>
+              <td>2012</td>
+            </tr>
+            <tr>
+              <td>C Programming Absolute Beginner's Guide</td>
+              <td>Greg Perry</td>
+              <td>C Programming</td>
+              <td>2013</td>
+            </tr>
+            <tr>
+              <td>C Programming Language</td>
+              <td>Kernighan Brian</td>
+              <td>C Programming</td>
+              <td>1978</td>
+            </tr>
+            <tr>
+              <td>C: The Complete Reference</td>
+              <td>Herbert Schildt</td>
+              <td>C Programming</td>
+              <td>1987</td>
+            </tr>
+            <tr>
+              <td>Head First C: A Brain-Friendly Guide</td>
+              <td>David Griffins</td>
+              <td>C Programming</td>
+              <td>2012</td>
+            </tr>
+            <tr>
+              <td>C Programming in easy steps, 5th Edition</td>
+              <td>Mike McGrath</td>
+              <td>C Programming</td>
+              <td>2002</td>
+            </tr>
+        </table>
+        <script>
+          function funSearch(){
+            let filter = document.getElementById("myInput").value;
+            let filter1 = filter.toString().toUpperCase();
+            let myTable = document.getElementById("myTable");
+            let tr = myTable.getElementsByTagName('tr');
+
+            for(var i=0; i<tr.length; i++){
+              let td = tr[i].getElementsByTagName('td')[0];
+              let td1 = tr[i].getElementsByTagName('td')[1];
+              let td2 = tr[i].getElementsByTagName('td')[2];
+              let td3 = tr[i].getElementsByTagName('td')[3];
+
+              if(td || td1 || td2 || td3){
+                let textvalue = td.textContent || td.innerHTML;
+                let textvalue1 = td1.textContent || td1.innerHTML;
+                let textvalue2 = td2.textContent || td2.innerHTML;
+                let textvalue3 = td3.textContent || td3.innerHTML;
+
+                if((textvalue.toUpperCase().indexOf(filter1) > -1) || (textvalue1.toUpperCase().indexOf(filter1) > -1) || (textvalue2.toUpperCase().indexOf(filter1) > -1) || (textvalue3.indexOf(filter) > -1)){
+                  tr[i].style.display = "";
+                }else{
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+        </script>
+      </div>
+    </body>
+</html>
